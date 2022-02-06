@@ -1,0 +1,25 @@
+info:
+  application:
+    version: '@project.version@'
+
+db:
+  host: localhost
+  port: 3306
+  schema: report-generator
+  username: root
+  password: root
+
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${db.host}:${db.port}/${db.schema}?useSSL=false
+    username: ${db.username}
+    password: ${db.password}
+  batch:
+    initialize-schema: always
+
+app:
+  batch:
+    file-path-in: ${user.home}\data\in\
+    file-path-out: ${user.home}\data\out\
+    file-path-finish: ${user.home}\data\finish\
